@@ -31,6 +31,37 @@
             "pages": [
               "index"
             ]
+          },
+          {
+            "group": "1. Organization Overview",
+            "pages": [
+              "organization/overview",
+              "organization/founding-philosophy",
+              "organization/structure",
+              "organization/core-arms",
+              "organization/brand-system",
+              "organization/code-of-conduct",
+              "organization/ethics-compliance",
+              "organization/environment-safety",
+              "organization/digital-ecosystem",
+              "organization/measurement-impact",
+              "organization/governance-certification",
+              "organization/appendices"
+            ]
+          },
+          {
+            "group": "3. Governance & Conduct",
+            "pages": [
+              "conduct/introduction",
+              "conduct/guiding-philosophy",
+              "conduct/principles",
+              "conduct/ethics-cycle",
+              "conduct/enforcement",
+              "conduct/restoration",
+              "conduct/documentation",
+              "conduct/periodic-renewal",
+              "conduct/conclusion"
+            ]
           }
         ]
       }
