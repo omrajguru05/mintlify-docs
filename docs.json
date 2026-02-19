@@ -1,13 +1,17 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "quill",
+  "theme": "maple",
   "name": "Scriptorium",
-  "appearance": "dark",
+  "appearance": {
+    "default": "dark"
+  },
   "colors": {
     "primary": "#FFD60A",
     "light": "#FFD60A",
-    "dark": "#FFD60A",
-    "background": {
+    "dark": "#FFD60A"
+  },
+  "background": {
+    "color": {
       "dark": "#1D1D1F",
       "light": "#FFFFFF"
     }
