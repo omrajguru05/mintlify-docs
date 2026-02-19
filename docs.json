@@ -6,9 +6,9 @@
     "default": "dark"
   },
   "colors": {
-    "primary": "#FFD60A",
-    "light": "#FFD60A",
-    "dark": "#FFD60A"
+    "primary": "#2962FF",
+    "light": "#2962FF",
+    "dark": "#2962FF"
   },
   "background": {
     "color": {
@@ -50,7 +50,33 @@
             ]
           },
           {
-            "group": "2. Governance & Conduct",
+            "group": "2. Brand & Standards",
+            "pages": [
+              {
+                "group": "IBBE Naming Framework",
+                "pages": [
+                  "naming/framework",
+                  "naming/three-sources",
+                  "naming/categories",
+                  "naming/tests-and-bans",
+                  "naming/example-summary"
+                ]
+              },
+              {
+                "group": "Verbal Identity System",
+                "pages": [
+                  "verbal/foundation",
+                  "verbal/voice-tone",
+                  "verbal/mechanics",
+                  "verbal/vocabulary",
+                  "verbal/examples",
+                  "verbal/checklist"
+                ]
+              }
+            ]
+          },
+          {
+            "group": "3. Governance & Conduct",
             "pages": [
               {
                 "group": "Core Principles of Conduct",
