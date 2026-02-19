@@ -50,17 +50,40 @@
             ]
           },
           {
-            "group": "3. Governance & Conduct",
+            "group": "2. Governance & Conduct",
             "pages": [
-              "conduct/introduction",
-              "conduct/guiding-philosophy",
-              "conduct/principles",
-              "conduct/ethics-cycle",
-              "conduct/enforcement",
-              "conduct/restoration",
-              "conduct/documentation",
-              "conduct/periodic-renewal",
-              "conduct/conclusion"
+              {
+                "group": "Core Principles of Conduct",
+                "pages": [
+                  "conduct/introduction",
+                  "conduct/guiding-philosophy",
+                  "conduct/principles",
+                  "conduct/ethics-cycle",
+                  "conduct/enforcement",
+                  "conduct/restoration",
+                  "conduct/documentation",
+                  "conduct/periodic-renewal",
+                  "conduct/conclusion"
+                ]
+              },
+              {
+                "group": "Business Conduct Charter",
+                "pages": [
+                  "charter/preamble",
+                  "charter/core-principles",
+                  "charter/responsibilities",
+                  "charter/culture-clause",
+                  "charter/conflicts-ethics",
+                  "charter/trust-mechanism",
+                  "charter/protecting-identity",
+                  "charter/digital-confidential",
+                  "charter/discipline-dignity",
+                  "charter/environment-safety-duty",
+                  "charter/governance-training",
+                  "charter/enforcement-appeals",
+                  "charter/resources-contacts"
+                ]
+              }
             ]
           }
         ]
