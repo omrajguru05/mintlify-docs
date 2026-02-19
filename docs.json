@@ -72,6 +72,21 @@
                   "verbal/examples",
                   "verbal/checklist"
                 ]
+              },
+              {
+                "group": "Brand Integrity Document",
+                "pages": [
+                  "brand-integrity/preamble",
+                  "brand-integrity/philosophy",
+                  "brand-integrity/system-overview",
+                  "brand-integrity/tone-voice",
+                  "brand-integrity/internal-conduct",
+                  "brand-integrity/protection-usage",
+                  "brand-integrity/trust-accountability",
+                  "brand-integrity/integrity-unit",
+                  "brand-integrity/crisis-recovery",
+                  "brand-integrity/appendices"
+                ]
               }
             ]
           },
@@ -108,6 +123,23 @@
                   "charter/governance-training",
                   "charter/enforcement-appeals",
                   "charter/resources-contacts"
+                ]
+              },
+              {
+                "group": "Conduct Restoration & Enforcement",
+                "pages": [
+                  "enforcement/purpose-scope",
+                  "enforcement/principles",
+                  "enforcement/classification",
+                  "enforcement/disciplinary-stages",
+                  "enforcement/investigation",
+                  "enforcement/recovery",
+                  "enforcement/appeals",
+                  "enforcement/communication",
+                  "enforcement/recordkeeping",
+                  "enforcement/metrics",
+                  "enforcement/integration",
+                  "enforcement/closure"
                 ]
               }
             ]
