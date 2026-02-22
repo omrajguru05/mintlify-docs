@@ -143,6 +143,12 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "4. Innovation & Process",
+            "pages": [
+              "matriculant/index"
+            ]
           }
         ]
       }
