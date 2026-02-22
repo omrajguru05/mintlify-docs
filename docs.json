@@ -147,7 +147,15 @@
           {
             "group": "4. Innovation & Process",
             "pages": [
-              "matriculant/index"
+              "matriculant/index",
+              {
+                "group": "Templates",
+                "pages": [
+                  "matriculant/stage-1-press-release",
+                  "matriculant/stage-1-hard-truth-faq",
+                  "matriculant/stage-2-prototype-brief"
+                ]
+              }
             ]
           }
         ]
