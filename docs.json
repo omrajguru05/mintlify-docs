@@ -50,8 +50,9 @@
             ]
           },
           {
-            "group": "2. Brand & Standards",
+            "group": "2. Human Interfaces",
             "pages": [
+              "human-interfaces/design-system",
               {
                 "group": "IBBE Naming Framework",
                 "pages": [

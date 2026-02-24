@@ -1,0 +1,377 @@
+---
+title: "design system"
+description: "the master technical reference for the ibbe design system."
+---
+
+welcome to the master technical reference for the ibbe design system. this document outlines the core physics, tokens, components, interaction models, and verbal identity rules required to build interfaces in the ibbe ecosystem.
+
+our goal is to create clarity through chaos. we build human-centered, tactile, no-bullshit interfaces. every pixel should feel deliberate. every interaction should surprise you.
+
+## 1. core philosophy & information architecture
+
+we reject generic ui patterns, corporate sterility, jargon-filled interfaces, and false politeness. our archetype is the calm architect.
+
+### 1.1 deference to content
+the interface (circles, borders) must recede. content is the gravitational center. use negative space generously to let the most important elements breathe. never clutter.
+
+### 1.2 the pace framework
+when engineering a view, validate it against the pace framework:
+
+- **purpose**: convey critical information instantly. place headers at the top. retain only ideas serving the primary purpose.
+- **anticipation**: treat text as a conversation. anticipate what the user will click next.
+- **context**: consider the user's environment. write specific, helpful alerts.
+- **empathy**: write for everyone using simple language. provide thoughtful empty states.
+
+### 1.3 progressive disclosure
+display essential information initially. reveal details and advanced options only upon interaction. organize extensive content into themes (time, seasonality, progress) to reduce choice overload.
+
+## 2. the physics & design tokens
+
+do not use hardcoded hex codes or random animation curves. all values must reference these core css variables. objects must feel real. we do not use flat design.
+
+### 2.1 css variables setup
+
+```css
+:root {
+  /* foundation colors */
+  --cream: #f7f2e9;      /* page backgrounds, primary neutral */
+  --bone: #fff9f0;       /* card backgrounds, surfaces, app shells */
+  --charcoal: #1d1d1f;   /* text, borders, dark accents */
+  --gray: #8e8e93;       /* secondary text, disabled states, placeholders */
+  --line: #e8e2d8;       /* borders, dividers, subtle separators */
+
+  /* semantic colors */
+  --blue: #2962ff;       /* primary cta, links, information */
+  --green: #28c76f;      /* success, online status, positive actions */
+  --red: #ff453a;        /* danger, delete, warnings, stickers */
+  --yellow: #ffd60a;     /* operations, primary focus, highlight */
+
+  /* structural geometry */
+  --border-thick: 3px;   /* primary structural borders */
+  --border-thin: 1px;    /* internal dividers */
+  --radius-outer: 16px;  /* outer containers, cards */
+  --radius-inner: 12px;  /* inner elements, buttons, inputs */
+  --radius-pill: 4px;    /* tags, sharp contrast to round cards */
+  --radius-orbital: 50%; /* perfect circles for orbital system */
+
+  /* tactile physics */
+  --shadow-rest: 6px 6px 0px var(--charcoal);
+  --shadow-hover: 8px 8px 0px var(--charcoal);
+  --shadow-active: 2px 2px 0px var(--charcoal);
+  
+  /* kinematics */
+  --ease-snap: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --duration-fast: 200ms;
+  --duration-medium: 400ms;
+}
+```
+
+### 2.2 color enforcement rules
+
+| rule | description |
+| :--- | :--- |
+| **do** | use cream/bone for 80% of interfaces. they are neutral partners. |
+| **do** | maintain high contrast. charcoal on bone always passes wcag aa. |
+| **don't** | add arbitrary gradients, opacity fades, or light blue nonsense. |
+| **don't** | use color for decoration. semantic colors mean something (e.g., green = go, yellow = focus). |
+
+### 2.3 spacing scale (8px base)
+
+all spacing uses an 8px base unit. never deviate from this scale.
+
+- `--space-1` (1px): hairlines, borders
+- `--space-2` (2px): micro spacing
+- `--space-4` (4px): icon padding, tight spacing
+- `--space-6` (6px): input padding
+- `--space-8` (8px): small gaps, button padding
+- `--space-12` (12px): medium gaps
+- `--space-16` (16px): standard padding
+- `--space-24` (24px): section separation
+- `--space-32` (32px): major breaks
+
+## 3. typography system
+
+we use a dual-font system. inter is our voice. jetbrains mono is our data.
+
+### 3.1 font stacks & variables
+
+```css
+/* primary font for all narrative content and UI */
+--font-sans: 'inter', -apple-system, blinkmacsystemfont, sans-serif;
+
+/* secondary font for timestamps, meta, code, ids */
+--font-mono: 'jetbrains mono', monospace;
+```
+
+### 3.2 typographic scale
+
+| level | font | size | weight | line-height | tracking | usage |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **h1** | inter | 32px | 800 | 1.1 | -2.0px | page titles, hero headlines |
+| **h2** | inter | 28px | 700 | 1.2 | -1.0px | section titles |
+| **h3** | inter | 24px | 700 | 1.3 | -0.5px | card titles, subsections |
+| **body** | inter | 16px | 400 | 1.5 | 0.0px | main text, paragraphs |
+| **label** | inter | 13px | 600 | 1.4 | 0.0px | form labels, badges |
+| **mono** | jb mono | 11px | 500 | 1.4 | +0.5px | timestamps, metadata, ids |
+
+### 3.3 typography do's & don'ts
+
+- **do**: use weight 700+ for headers to signal hierarchy.
+- **do**: use weight 400 for body readability.
+- **do**: use `text-transform: lowercase` for ui labels (not necessarily user-generated content).
+- **don't**: mix fonts randomly (inter is law).
+- **don't**: use italics (we don't use italic weights).
+- **don't**: use all caps outside of technical contexts (jetbrains mono).
+
+## 4. layout & geometry
+
+### 4.1 the 70/30 rule
+to organize chaos, 70% of the layout should be circular (organic, flowing, orbital elements), anchored by 30% rectilinear elements (cards, text blocks, strict borders) for stability.
+
+### 4.2 the asymmetrical grid
+do not use a simple equal-width grid. we use a 12-column asymmetrical grid, padded generously (24px, 32px, 48px) to let typography breathe.
+
+- **hero content**: spans 8 columns.
+- **lists/sidebars**: spans 4 columns.
+- **visuals**: spans 4 or 6 columns.
+
+## 5. tactile components engineering
+
+everything interactive must have physical weight. elements physically react to the cursor. they do not just change color; they move.
+
+### 5.1 the physical hover state (the "snap").
+
+```css
+.tactile-element {
+  background: var(--bone);
+  border: var(--border-thick) solid var(--charcoal);
+  border-radius: var(--radius-inner);
+  box-shadow: var(--shadow-rest);
+  transition: all var(--duration-fast) var(--ease-snap);
+  transform: translate(0, 0);
+  cursor: pointer;
+}
+
+.tactile-element:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.tactile-element:active {
+  transform: translate(2px, 2px);
+  box-shadow: var(--shadow-active);
+}
+```
+
+### 5.2 the journal card
+the journal card is the primary container for information.
+
+```html
+<article class="journal-card">
+  <div class="card-meta">
+    <span class="status-dot green"></span>
+    <span class="meta-text">technology & systems</span>
+  </div>
+  <h3 class="card-title">the walled garden has a hole.</h3>
+  <p class="card-copy">google didn't break the door down. they just learned how to pick the lock.</p>
+  <div class="card-footer">
+    <span>read time: 4 min</span>
+    <span>doc #842</span>
+  </div>
+</article>
+```
+
+```css
+.journal-card {
+  background: var(--bone);
+  border: var(--border-thick) solid var(--charcoal);
+  border-radius: var(--radius-outer);
+  box-shadow: var(--shadow-rest);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all var(--duration-fast) var(--ease-snap);
+}
+
+.journal-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-orbital);
+  background: var(--charcoal);
+}
+.status-dot.green { background: var(--green); }
+```
+
+### 5.3 the sticker
+stickers are used to violently draw attention to a card. they must be rotated and break the grid slightly.
+
+```css
+.sticker {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--red);
+  color: #ffffff;
+  padding: 4px 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  border: 2px solid var(--charcoal);
+  border-radius: var(--radius-pill);
+  transform: rotate(12deg);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+```
+
+### 5.4 orbital elements
+used for hero visuals or emphasis, adhering strictly to the 1/1 aspect ratio.
+
+```css
+.orbital-element {
+  border-radius: var(--radius-orbital);
+  border: var(--border-thick) solid var(--charcoal);
+  box-shadow: var(--shadow-hover); /* Deep Tactile Depth */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1; 
+  background: var(--yellow);
+}
+```
+
+## 6. verbal identity & ux writing
+
+our brand persona is "the calm architect." we are elegant but warm. confident but approachable. a mentor who looks you in the eye and smiles.
+
+### 6.1 strict grammar & formatting rules
+
+- **lowercase only**: we use strictly lowercase for interface copy. it feels modern, humble, and approachable. *yes: hello, welcome to ibbe. no: Hello, Welcome to IBBE.*
+- **positive contractions**: use "it's," "we're," "you're" to sound natural.
+- **punctuation**: periods are fine. commas let text breathe. avoid exclamation points unless it's a genuine celebration.
+- **benefit-first structure**: place the user benefit at the beginning of the sentence to maximize impact (lead with the "why").
+- **omit fillers**: remove unnecessary adverbs and pleasantries.
+
+### 6.2 the "natural" shift (no negative words)
+
+**critical rule**: we strictly avoid negative words (no, not, never, can't, won't, don't). instead of saying what is wrong, we suggest what is right.
+
+| scenario | avoid this (robotic/negative) | do this (natural/humane) |
+| :--- | :--- | :--- |
+| **errors** | "incorrect password." | "let's try that password again." |
+| **access** | "you can't use this." | "this feature is for pro members." |
+| **security** | "don't use a weak password." | "it's best to use a stronger password." |
+| **support** | "our agents are standing by." | "we're here to help you." |
+
+### 6.3 the voice matrix
+
+| scenario | tone to use | why? |
+| :--- | :--- | :--- |
+| **marketing** | inviting & fresh | we want them to feel the possibility of what comes next. |
+| **errors/friction** | calm & helpful | things go wrong. we simply fix them together. |
+| **support** | kind & patient | we listen first. we ensure they feel heard. |
+| **legal / policy** | clear & honest | we use plain language. trust requires clarity. |
+
+### 6.4 applied examples
+
+**ux writing: wrong password**
+- **headline**: let's try that again.
+- **body**: it looks like the password needs a second look. please check your details and retry.
+- **link**: or we can send a reset link to your email.
+
+**in-app message: feature update**
+- **headline**: meet focus.
+- **body**: we created a new way for you to track your progress. it's simple, clean, and designed to keep you calm while you study.
+- **button**: see how it works
+
+### 6.5 ux writing pre-flight checklist
+
+before deploying any text to production, ask:
+1. is it human? (would i say this to a friend in a café?)
+2. is it positive? (did i avoid all negative words?)
+3. is it simple? (did i remove corporate fluff like "synergy" or "utilize"?)
+4. is it entirely lowercase?
+5. does the user feel valued?
+
+## 7. edge cases, notifications & the "roast"
+
+when handling edge cases, interactions, or user snooping, we employ a gentle, unapologetic humor.
+
+### 7.1 the "offline/connectivity" panic
+
+since we don't have a backend, we blame the user's internet.
+
+| trigger | header | body text | action button |
+| :--- | :--- | :--- | :--- |
+| **user goes offline** | 404: REALITY NOT FOUND | "you are offline. go touch grass. or pay your internet bill. we'll wait." | "i promise to fix my wifi" |
+| **back online** | WELCOME BACK TO THE MATRIX | "oh, you decided to rejoin civilization? the internet missed you. (we didn't.)" | "thanks, i guess" |
+| **slow connection** | LOADING... (EVENTUALLY) | "your internet is running on 2G and hope. we are loading the pixels one by one manually." | "i like waiting" |
+
+### 7.2 the "interaction" roast
+
+when users click things they shouldn't.
+
+| trigger | header | body text | action button |
+| :--- | :--- | :--- | :--- |
+| **right click / copy** | HEY! PUT THAT DOWN. | "this text is property of ibbe. if you steal it, we will know. we won't do anything, but we will know." | "i was just borrowing it" |
+| **click disabled button** | BUTTON.IS_BROKEN | "stop clicking. it's not playing hard to get. it's just broken. it's not you, it's us." | "my bad" |
+| **idle (2 mins)** | ARE YOU DEAD? | "it's been 2 minutes. did you fall asleep? did you die? blink twice if you need help." | "i'm alive" |
+
+### 7.3 the "browser" snark
+
+handling window resizing and dev tools.
+
+| trigger | header | body text | action button |
+| :--- | :--- | :--- | :--- |
+| **open devtools (f12)** | AGENT SMITH IS WATCHING | "looking at our code? it's spaghetti. delicious, messy spaghetti. don't judge us." | "i'm a hacker" |
+| **window too small** | I CAN'T BREATHE | "i'm claustrophobic. please give these pixels some room. i am begging you." | "expand" |
+| **dark mode toggle** | LIGHTS OUT | "ah, darkness. the natural habitat of developers and raccoons. welcome home." | "hiss at the sun" |
+
+## 8. tailwind configuration integration
+
+if your frontend stack uses tailwind css, map the ibbe design tokens directly into your `tailwind.config.js` to ensure global compliance.
+
+```javascript
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#f7f2e9',
+        bone: '#fff9f0',
+        charcoal: '#1d1d1f',
+        gray: '#8e8e93',
+        line: '#e8e2d8',
+        blue: '#2962ff',
+        green: '#28c76f',
+        red: '#ff453a',
+        yellow: '#ffd60a',
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
+      boxShadow: {
+        'tactile': '6px 6px 0px #1d1d1f',
+        'tactile-hover': '8px 8px 0px #1d1d1f',
+        'tactile-active': '2px 2px 0px #1d1d1f',
+      },
+      borderWidth: {
+        '3': '3px',
+      },
+      transitionTimingFunction: {
+        'snap': 'cubic-bezier(0.25, 0.8, 0.25, 1)',
+      },
+      borderRadius: {
+        'outer': '16px',
+        'inner': '12px',
+        'orbital': '50%',
+      }
+    }
+  }
+}
+```
