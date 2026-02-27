@@ -158,6 +158,13 @@
                 ]
               }
             ]
+          },
+          {
+            "group": "5. Policies",
+            "pages": [
+              "policies/advertising-policy",
+              "policies/privacy-policy"
+            ]
           }
         ]
       }
